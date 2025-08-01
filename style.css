@@ -1196,6 +1196,8 @@ footer {
 
 @media (max-width: 480px) {
     nav{
+        justify-content: center;
+        text-align: center;
        /* border: red solid;  */
         padding: 30px 15px 30px 15px;
 
