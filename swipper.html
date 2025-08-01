@@ -1,0 +1,65 @@
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide banner-image">
+          <img src="image/1389560_720.webp" alt="">
+          <h1>Ketegangan Politik Tarif antara Indonesia dan Amerika Serikat Semakin Meningkat</h1>
+          <p>Politik</p>
+        </div>
+        <div class="swiper-slide banner-image">
+          <img src="image/IJ32ZGMLKVLDPCCECKTD5GN5AA.avif" alt="">
+          <h1>Ketegangan Politik Tarif antara Indonesia dan Amerika Serikat Semakin Meningkat</h1>
+          <p>Technology</p>
+        </div>
+        <div class="swiper-slide banner-image">
+          <img src="image/OJ2SQ4LIZVK4PG2W5K2ZEG62VE.avif" alt="">
+          <h1>Ketegangan Politik Tarif antara Indonesia dan Amerika Serikat Semakin Meningkat</h1>
+          <p>Design</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+     <script>
+        const swiper = new Swiper('.mySwiper', {
+          slidesPerView: "auto",
+          centeredSlides: true,
+          spaceBetween: 20,
+          loop: true,
+          loopedSlides: 3,
+          initialSlide: 1,
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          breakpoints: {
+            0: {
+              slidesPerView: 1.2,
+              spaceBetween: 10,
+            },
+            768: {
+              slidesPerView: 1.5,
+              spaceBetween: 20,
+            },
+          },
+          autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+          },
+          on: {
+            beforeInit: function () {
+              const swiperContainer = document.querySelector('.mySwiper .swiper-wrapper');
+              const slides = swiperContainer.querySelectorAll('.swiper-slide');
+              if (slides.length === 3) {
+                slides.forEach((slide) => {
+                  const clone = slide.cloneNode(true);
+                  swiperContainer.appendChild(clone);
+                });
+              }
+            },
+          },
+        });
+     </script>

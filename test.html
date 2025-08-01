@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Site</title>
+  <link rel="stylesheet" href="style.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+
+  <div id="navbar-placeholder"></div>
+  <div id="swipper-placeholder"></div>
+  <div id="kontent-placeholder"></div>
+  <div id="footer-placeholder"></div>
+
+  <!-- <h1>Ini Halaman Index</h1> -->
+
+  <script>
+    fetch('navbar.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('navbar-placeholder').innerHTML = data;
+      });
+  </script>
+
+  <script>
+    fetch('swipper.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('swipper-placeholder').innerHTML = data;
+    });
+  </script>
+
+  <script>
+    fetch('kontent.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('kontent-placeholder').innerHTML = data;
+    });
+  </script>
+
+  <script>
+    fetch('footer.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+      });
+  </script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+     <script>
+        const swiper = new Swiper('.mySwiper', {
+          slidesPerView: "auto",
+          centeredSlides: true,
+          spaceBetween: 20,
+          loop: true,
+          loopedSlides: 3,
+          initialSlide: 1,
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          breakpoints: {
+            0: {
+              slidesPerView: 1.2,
+              spaceBetween: 10,
+            },
+            768: {
+              slidesPerView: 1.5,
+              spaceBetween: 20,
+            },
+          },
+          autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+          },
+          on: {
+            beforeInit: function () {
+              const swiperContainer = document.querySelector('.mySwiper .swiper-wrapper');
+              const slides = swiperContainer.querySelectorAll('.swiper-slide');
+              if (slides.length === 3) {
+                slides.forEach((slide) => {
+                  const clone = slide.cloneNode(true);
+                  swiperContainer.appendChild(clone);
+                });
+              }
+            },
+          },
+        });
+     </script>
+</body>
+</html>
